@@ -1,6 +1,11 @@
 let numberOfLines = 5;
-const pixelBoard = document.querySelector('#pixel-board');
-console.log(pixelBoard);
+
+function clearBoard() {
+  const lines = document.querySelectorAll('.line');
+  for (let i = 0; i < lines.length; i += 1) {
+    lines[i].remove();
+  }
+}
 
 // Cria um pixel com base nas diferentes classes
 function createPixel(className) {
@@ -25,6 +30,7 @@ function fillLine(divLine) {
 }
 
 // Passa por todos as linhas (div com class line) e preenche o quadro
+const pixelBoard = document.querySelector('#pixel-board');
 function fillBoard() {
   for (let index = 0; index < numberOfLines; index += 1) {
     const line = createLine('line');
@@ -32,6 +38,20 @@ function fillBoard() {
     pixelBoard.appendChild(line);
   }
 }
+
+function generateBoard() {
+  const boardSize = document.querySelector('#board-size').value;
+  if (boardSize === '') {
+    alert('Board inválido!');
+  } else {
+    numberOfLines = boardSize;
+    clearBoard();
+    fillBoard();
+  }
+}
+
+const btnVqv = document.querySelector('#generate-board');
+btnVqv.addEventListener('click', generateBoard);
 
 fillBoard();
 
@@ -56,7 +76,7 @@ function modifyPixelColor(event) {
 
 pixelBoard.addEventListener('click', modifyPixelColor);
 
-function clearBoard() {
+function clearColorBoard() {
   const pixels = document.querySelectorAll('.pixel');
   for (let index = 0; index < pixels.length; index += 1) {
     pixels[index].classList.remove('black');
@@ -67,4 +87,4 @@ function clearBoard() {
 }
 
 const btn = document.querySelector('#clear-board');
-btn.addEventListener('click', clearBoard);
+btn.addEventListener('click', clearColorBoard);
