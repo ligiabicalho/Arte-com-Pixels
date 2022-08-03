@@ -1,8 +1,9 @@
 function modifyColorSelected(event) {
-  const colorSelect = document.querySelector('.selected');
-  console.log(event.target);
+  const colorSelect = event.target;
+  const selectedRemove = document.querySelector('.selected');
+  selectedRemove.classList.remove('selected');
+  colorSelect.classList.add('selected');
 }
 
 const colorPalette = document.querySelector('#color-palette');
-console.log(colorPalette);
 colorPalette.addEventListener('click', modifyColorSelected);
