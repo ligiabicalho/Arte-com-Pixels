@@ -11,9 +11,11 @@ colorPalette.addEventListener('click', modifyColorSelected);
 function modifyPixelColor(event) {
   // const classPixel = document.querySelector('.pixel');
   const colorSelectedClass = document.querySelector('.selected').classList[1];
-  const pixelSelected = event.target;
-  pixelSelected.classList.add(colorSelectedClass);
-  console.log(pixelSelected);
+  const elementSelected = event.target;
+  console.log(elementSelected.classList);
+  if (elementSelected.className.indexOf('pixel') !== -1) {
+    elementSelected.className = `pixel ${colorSelectedClass}`;
+  }
 }
 
 const pixelBoard = document.querySelector('#pixel-board');
@@ -27,10 +29,6 @@ function clearBoard() {
     pixels[index].classList.remove('green');
     pixels[index].classList.remove('blue');
   }
-  // colorRemove = colorRemove[0];
-  // colorRemove.classList.remove(colorRemove);
-
-  // console.log();
 }
 
 const btn = document.querySelector('#clear-board');

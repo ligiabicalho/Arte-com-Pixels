@@ -5,20 +5,20 @@
   display: inline-block; 
 }
 
-.black {
-  background-color: black !important;
+div.black {
+  background-color: black;
 }
 
-.red {
-  background-color: red !important;
+div.red {
+  background-color: red;
 }
 
-.green {
-  background-color: green !important;
+div.green {
+  background-color: green;
 }
 
-.blue {
-  background-color: blue !important;
+div.blue {
+  background-color: blue;
 }
 
 .pixel {
