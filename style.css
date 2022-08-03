@@ -5,22 +5,6 @@
   display: inline-block; 
 }
 
-div.black {
-  background-color: black;
-}
-
-div.red {
-  background-color: red;
-}
-
-div.green {
-  background-color: green;
-}
-
-div.blue {
-  background-color: blue;
-}
-
 .pixel {
   border: 1px solid rgb(0, 0, 0);
   width: 40px;

@@ -1,4 +1,16 @@
 let numberOfLines = 5;
+function random(number) {
+  return Math.floor(Math.random() * (number + 1));
+}
+const randomColor1 = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+const randomColor2 = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+const randomColor3 = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+const color1 = document.querySelector('#color1');
+color1.style.backgroundColor = randomColor1;
+const color2 = document.querySelector('#color2');
+color2.style.backgroundColor = randomColor2;
+const color3 = document.querySelector('#color3');
+color3.style.backgroundColor = randomColor3;
 
 function clearBoard() {
   const lines = document.querySelectorAll('.line');
@@ -43,11 +55,15 @@ function generateBoard() {
   const boardSize = document.querySelector('#board-size').value;
   if (boardSize === '') {
     alert('Board inválido!');
+  } else if (boardSize <= 5) {
+    numberOfLines = 5;
+  } else if (boardSize >= 50) {
+    numberOfLines = 50;
   } else {
     numberOfLines = boardSize;
-    clearBoard();
-    fillBoard();
   }
+  clearBoard();
+  fillBoard();
 }
 
 const btnVqv = document.querySelector('#generate-board');
@@ -66,11 +82,10 @@ const colorPalette = document.querySelector('#color-palette');
 colorPalette.addEventListener('click', modifyColorSelected);
 
 function modifyPixelColor(event) {
-  // const classPixel = document.querySelector('.pixel');
-  const colorSelectedClass = document.querySelector('.selected').classList[1];
+  const colorSelected = document.querySelector('.selected').style.backgroundColor;
   const elementSelected = event.target;
   if (elementSelected.className.indexOf('pixel') !== -1) {
-    elementSelected.className = `pixel ${colorSelectedClass}`;
+    elementSelected.style.backgroundColor = colorSelected;
   }
 }
 
@@ -79,10 +94,7 @@ pixelBoard.addEventListener('click', modifyPixelColor);
 function clearColorBoard() {
   const pixels = document.querySelectorAll('.pixel');
   for (let index = 0; index < pixels.length; index += 1) {
-    pixels[index].classList.remove('black');
-    pixels[index].classList.remove('red');
-    pixels[index].classList.remove('green');
-    pixels[index].classList.remove('blue');
+    pixels[index].style.backgroundColor = 'white';
   }
 }
 
