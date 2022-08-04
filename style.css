@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .color {
   border: 1px solid black;
   width: 50px;
@@ -16,11 +20,15 @@
 }
 
 .line {
-  margin: 0;
+  height: 40px;
   padding: 0;
 }
 
 #clear-board {
   display: block;
   margin: 10px;
+}
+
+#board-size {
+  width: 50px;
 }
