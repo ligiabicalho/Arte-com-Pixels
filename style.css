@@ -32,3 +32,7 @@
 #board-size {
   width: 50px;
 }
+
+.selected {
+  box-shadow: 2px 3px 2px grey;
+}
